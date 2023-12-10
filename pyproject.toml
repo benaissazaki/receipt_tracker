@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "receipt-tracker"
+version = "0.1.0"
+description = ""
+authors = ["Benaissa Zaki <zakben45@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+Django = "^5.0"
+django-environ = "^0.11.2"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
