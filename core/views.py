@@ -3,7 +3,7 @@ from django.db.models.query import QuerySet
 from django.urls import reverse_lazy
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
-from django.views.generic.edit import UpdateView
+from django.views.generic.edit import UpdateView, CreateView
 from .models import Receipt
 
 
@@ -43,3 +43,16 @@ class ReceiptUpdateView(UpdateView):
 
     def get_success_url(self) -> str:
         return reverse_lazy('receipt_detail', args=[self.get_object().pk])
+
+class ReceiptCreateView(CreateView):
+    model = Receipt
+    fields = ['store_name', 'date_of_purchase', 'item_list', 'total_amount']
+    template_name_suffix = '_create'
+    context_object_name = 'receipt'
+
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super().form_valid(form)
+        
+    def get_success_url(self) -> str:
+        return reverse_lazy('receipt_detail', args=[self.object.pk]) # type: ignore
