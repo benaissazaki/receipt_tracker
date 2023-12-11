@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ receipt }}{% endblock %}
+
+{% block body %}
+<h1>{{ receipt }}</h1>
+
+<ul>
+  <li><b>Store:</b> {{ receipt.store_name }}</li>
+  <li><b>Date of purchase:</b> {{ receipt.date_of_purchase }}</li>
+  <li><b>Items:</b> {{ receipt.item_list }}</li>
+  <li><b>Total amount:</b> {{ receipt.total_amount }}</li>
+</ul>
+{% endblock %}
