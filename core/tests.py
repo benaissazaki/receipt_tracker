@@ -137,3 +137,22 @@ class ReceiptUpdateViewTest(TestCase):
         response = self.client.get(reverse_lazy(
             'receipt_update', args=[self.user2_receipt.pk]))
         self.assertEquals(response.status_code, 403)
+
+
+class ReceiptCreateViewTest(TestCase):
+
+    def setUp(self) -> None:
+        self.user1 = get_user_model().objects.create(username='user1')
+        self.user1.set_password('user1')
+        self.user1.save()
+
+    def test_redirects_unauthenticated_users_to_login(self):
+        response = self.client.get(reverse_lazy(
+            'receipt_create'))
+        self.assertEquals(response.status_code, 302)
+
+    def test_allows_authenticated_user(self):
+        self.client.login(username='user1', password='user1')
+        response = self.client.get(reverse_lazy(
+            'receipt_create'))
+        self.assertEquals(response.status_code, 200)
