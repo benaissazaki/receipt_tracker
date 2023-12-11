@@ -1,0 +1,14 @@
+{
+  "builds": [
+    {
+      "src": "receipt_tracker/wsgi.py",
+      "use": "@vercel/python"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "receipt_tracker/wsgi.py"
+    }
+  ]
+}
