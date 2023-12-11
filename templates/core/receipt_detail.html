@@ -11,4 +11,6 @@
   <li><b>Items:</b> {{ receipt.item_list }}</li>
   <li><b>Total amount:</b> {{ receipt.total_amount }}</li>
 </ul>
+
+<a href="{% url 'receipt_update' receipt.pk %}">Edit receipt</a>
 {% endblock %}
