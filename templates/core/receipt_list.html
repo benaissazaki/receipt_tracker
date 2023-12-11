@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %}My receipts{% endblock %}
+
+{% block body %}
+<h1>My receipts</h1>
+<ul>
+{% for receipt in receipts %}
+<li><a href="{% url 'receipt_detail' receipt.pk %}">{{ receipt }}</a></li>
+{% empty %}
+<p>You have no receipt</p>
+{% endfor %}
+</ul>
+<a href="{% url 'receipt_create' %}">Create receipt</a>
+{% endblock %}
