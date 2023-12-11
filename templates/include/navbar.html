@@ -2,6 +2,7 @@
   <ul>
     <li><a href="/">Home</a></li>
     {% if user.is_authenticated %}
+    <li><a href="{% url 'receipt_list' %}">My receipts</a></li>
     <li>
       <form action="{% url 'logout' %}" method="post">
         {% csrf_token %}
