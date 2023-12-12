@@ -4,15 +4,15 @@ A Django app for tracking receipts. Made as a practical assignment for a job can
 ## Installation
 ### Dependencies
 ```
-poetry install
-``` 
-or 
-```
 pip install -r requirements.txt
 ```
+or if using poetry
+```
+poetry install
+``` 
 
 ### Environment variables
-Create a .env file in the root folder (same level as `settings.py`) with the following variables:
+Create a .env file in the root folder (same folder as `settings.py`) with the following variables:
 
 #### Development:
 ```
