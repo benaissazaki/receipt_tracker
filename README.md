@@ -58,7 +58,7 @@ poetry run python ./manage.py runserver
 ## Reasoning behind some choices
 
 ### Comments
-I avoid commenting for the sake of it. 
+I avoid commenting just for the sake of it. 
 
 Considering that 90% of the code is just reusing Django generics and overriding their functions, there rarely was a need to explain something, as any Django developer understanding the core concepts will have no problem understanding it.
 
